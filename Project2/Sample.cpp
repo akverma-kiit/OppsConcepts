@@ -44,24 +44,19 @@ Base::Base(int num, const std::string& name)
   cout << "Base Class:: (" << m_BObjectNumber << ") Constructor(Integer,String)" << endl;
 }
 
-/*Base::Base(std::initializer_list<int> a)
-{
-  cout << "Base Class:: (" << m_BObjectNumber << ") Constructor(initializer_list List)" << endl;
-}*/
-
 Base::Base(Base& obj)
-  : m_BNum(obj.m_BNum)
-  , m_BName(obj.m_BName)
 {
   ++m_BObjectCount;
   m_BObjectNumber = m_BObjectCount;
   cout << "Base Class:: (" << m_BObjectNumber << ") Copy Constructor" << endl;
+  m_BNum  = obj.m_BNum;
+  m_BName = obj.m_BName;
 }
 
 Base& Base::operator=(const Base& obj)
 {
   cout << "Base Class:: (" << m_BObjectNumber << ") Assignment Operator Overload" << endl;
-  //m_BNum  = obj.m_BNum;
+  m_BNum  = obj.m_BNum;
   m_BName = obj.m_BName;
 
   return *this;
@@ -85,4 +80,31 @@ int Base::GetNumber()
 const std::string& Base::GetName()
 {
   return m_BName;
+}
+
+//Derive Class
+Derive::Derive()
+  : m_DNum(99)
+  , m_DName("DeriveClassMember")
+{
+  cout << "Derive Class::Default Constructor" << endl;
+}
+
+int Derive::GetNumber()
+{
+  return m_DNum;
+}
+
+const std::string& Derive::GetName()
+{
+  return m_DName;
+}
+
+Derive::Derive(int num, const std::string& name)
+  : m_DNum(num)
+  , m_DName(name)
+{
+  cout << "Derive Class::Params Constructor" << endl;
+  cout << "Derive Class::Number = " << m_DNum << endl;
+  cout << "Derive Class::Name = " << m_DName << endl;
 }
