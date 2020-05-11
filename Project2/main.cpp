@@ -22,8 +22,8 @@ int main()
 
   Base a(77, "AMAN");
   Base b;
-  b = a;
+  b      = a;
   Base c = b;
 
- cout << Base::GetObjectCount() << endl;
+  cout << Base::GetObjectCount() << endl;
 }

@@ -7,18 +7,19 @@ class Base
 {
 private:
   int m_BObjectNumber;
-  const int m_BNum;
+  int m_BNum;
   std::string m_BName;
 
 public:
   static int m_BObjectCount;
+
   explicit Base();
   ~Base();
   explicit Base(int num);
   explicit Base(const std::string &name);
   explicit Base(int num, const std::string &name);
   //explicit Base(std::initializer_list<int> a);
-  Base(Base &obj);
+  Base(const Base &obj);
   Base &operator=(const Base &obj);
 
   static int GetObjectCount();

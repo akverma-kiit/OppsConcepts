@@ -1,7 +1,8 @@
-#include <gtest/gtest.h>
 #include "../Project1/Sample.h"
+#include <gtest/gtest.h>
 
-TEST(TestCaseName, TestName) {
+TEST(TestCaseName, TestName)
+{
   EXPECT_EQ(1, 1);
   EXPECT_TRUE(true);
 }

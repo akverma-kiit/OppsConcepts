@@ -49,7 +49,7 @@ Base::Base(int num, const std::string& name)
   cout << "Base Class:: (" << m_BObjectNumber << ") Constructor(initializer_list List)" << endl;
 }*/
 
-Base::Base(Base& obj)
+Base::Base(const Base& obj)
   : m_BNum(obj.m_BNum)
   , m_BName(obj.m_BName)
 {
@@ -61,9 +61,13 @@ Base::Base(Base& obj)
 Base& Base::operator=(const Base& obj)
 {
   cout << "Base Class:: (" << m_BObjectNumber << ") Assignment Operator Overload" << endl;
-  //m_BNum  = obj.m_BNum;
+  if (this == &obj)
+  {
+    cout << "Base Class:: Self Object Assignment Handle" << endl;
+    return *this;
+  }
+  m_BNum  = obj.m_BNum;
   m_BName = obj.m_BName;
-
   return *this;
 }
 

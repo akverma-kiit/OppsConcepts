@@ -22,11 +22,10 @@ public:
 
   static int GetObjectCount();
   int GetObjectNumber();
-  
+
   int GetNumber();
   const std::string &GetName();
 };
-
 
 class Derive //: public Base
 {
